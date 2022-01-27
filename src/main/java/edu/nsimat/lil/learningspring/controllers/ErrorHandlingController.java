@@ -17,12 +17,41 @@ public class ErrorHandlingController implements ErrorController {
 
         if(status != null){
             Integer statusCode = Integer.valueOf(status.toString());
+            System.out.println("The status code is: " + statusCode.intValue());
+            int value = statusCode.intValue();
 
-            if(statusCode == HttpStatus.NOT_FOUND.value()){
+            /*if(statusCode == HttpStatus.NOT_FOUND.value()){
                 return "error/HTTP404";
             }
             else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()){
                 return "error/HTTP500";
+            }*/
+
+            switch(value){
+                case 400:
+                    return "error/HTTP400";
+                case 401:
+                    return "error/HTTP401";
+                case 403:
+                    return "error/HTTP403";
+                case 404:
+                    return "error/HTTP404";
+                case 500:
+                    return "error/HTTP500";
+                case 501:
+                    return "error/HTTP501";
+                case 502:
+                    return "error/HTTP502";
+                case 503:
+                    return "error/HTTP503";
+                case 520:
+                    return "error/HTTP520";
+                case 521:
+                    return "error/HTTP521";
+                case 533:
+                    return "error/HTTP533";
+                default:
+                    return "error";
             }
         }
         return "error";
