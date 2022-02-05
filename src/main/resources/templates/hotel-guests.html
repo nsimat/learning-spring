@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Landon Hotel: Guests</title>
+    <link href="/webjars/bootstrap/5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>Welcome to the Guests Page</h1>
-<table>
-    <tr>
-        <td>Last Name</td>
-        <td>First Name</td>
-        <td>Email Address</td>
-        <td>Phone Number</td>
-    </tr>
-    <tr th:each="guest: ${guests}">
-        <td th:text="${guest.lastName}">LastName</td>
-        <td th:text="${guest.firstName}">FirstName</td>
-        <td th:text="${guest.emailAddress}">EmailAddress</td>
-        <td th:text="${guest.phoneNumber}">PhoneNumber</td>
-    </tr>
-</table>
+<div class="container">
+    <h1>Welcome to the Guests Page</h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="guest: ${guests}">
+            <td th:text="${guest.lastName}">LastName</td>
+            <td th:text="${guest.firstName}">FirstName</td>
+            <td th:text="${guest.emailAddress}">EmailAddress</td>
+            <td th:text="${guest.phoneNumber}">PhoneNumber</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/webjars/jquery/3.6.0/dist/jquery.min.js"></script>
+<script src="/webjars/bootstrap/5.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
